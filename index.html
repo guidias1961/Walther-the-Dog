@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Walter the Dog (Nelson) — Pulsechain Meme</title>
+  <meta name="description" content="Walter the Dog on Pulsechain via Pump.Tires. Tap the Tire Hunt, farm points, and join the pack." />
+  <link rel="icon" href="1.jpeg" />
+
+  <style>
+    :root{
+      /* Pulsechain-inspired palette */
+      --bg:#0a0b14;
+      --panel:#101428;
+      --panel-2:#0c1122;
+      --text:#f0f3ff;
+      --muted:#b8c6ff;
+      --accent:#ff4fd8;          /* magenta */
+      --accent-2:#3aa6ff;        /* cyan/blue */
+      --accent-3:#9b5cff;        /* purple */
+      --danger:#ff5e7e;
+      --glow: 0 0 28px rgba(58,166,255,.35), 0 0 36px rgba(155,92,255,.20);
+      --glow-accent: 0 0 28px rgba(255,79,216,.35);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1400px 700px at 85% -10%, rgba(58,166,255,.14), transparent 55%),
+        radial-gradient(1100px 500px at 15% 0%, rgba(155,92,255,.14), transparent 60%),
+        linear-gradient(180deg, #080a12 0%, #0a0b14 100%);
+      background-color:var(--bg);
+      overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1200px;margin:0 auto;padding:16px}
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(8px);
+      background: linear-gradient(180deg, rgba(10,11,20,.85), rgba(10,11,20,.55));
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .brand{
+      display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.5px;
+    }
+    .brand img.logo{width:36px;height:36px;border-radius:8px;object-fit:cover}
+    .brand .title{font-size:18px;display:flex;align-items:center;gap:10px}
+    .pc-badge{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:6px 10px;border-radius:999px;
+      background:linear-gradient(90deg, rgba(255,79,216,.18), rgba(58,166,255,.18));
+      border:1px solid rgba(255,255,255,.12);
+      font-weight:800;color:#e9e6ff;
+    }
+    .pc-badge img{width:18px;height:18px;display:block}
+    .row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .cta{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{
+      padding:10px 14px;border-radius:12px;font-weight:700;font-size:14px;
+      background:var(--panel);border:1px solid rgba(255,255,255,.10);
+      box-shadow:var(--glow); display:inline-flex;align-items:center;gap:8px;
+      transition:transform .12s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+      cursor:pointer; user-select:none;
+    }
+    .btn:hover{transform:translateY(-1px);box-shadow:0 0 0 rgba(0,0,0,0), 0 0 40px rgba(58,166,255,.28)}
+    .btn.primary{
+      background:linear-gradient(180deg, #3aa6ff 0%, #0f87ff 100%);
+      color:#001020; border-color:transparent
+    }
+    .btn.buy{
+      background:linear-gradient(180deg, #ff4fd8, #9b5cff);
+      color:#14001a; box-shadow:var(--glow-accent)
+    }
+    .btn.ig{background:linear-gradient(180deg, #ff7a00, #ff0069); color:#1a0010}
+    .btn.tt{background:linear-gradient(180deg, #111, #111); color:#f5f5f5; border-color:#2a2a2a}
+    .btn.tok{background:linear-gradient(180deg, #25f4ee, #fe2c55); color:#051014}
+    .socials{display:flex;gap:10px;flex-wrap:wrap}
+    .hero{
+      display:grid;grid-template-columns:1fr;gap:16px;margin:16px auto 8px;
+    }
+    .panel{
+      background: linear-gradient(180deg,rgba(18,20,38,.85),rgba(12,16,34,.85));
+      border:1px solid rgba(255,255,255,.08); border-radius:var(--radius);
+      padding:18px; box-shadow: 0 0 0 rgba(0,0,0,0), inset 0 0 64px rgba(58,166,255,.06);
+    }
+    .headline{
+      font-size:clamp(24px, 3.5vw, 44px); line-height:1.05; font-weight:900;
+      letter-spacing:.2px; margin:0 0 6px;
+      text-shadow:0 2px 0 rgba(0,0,0,.4);
+      background: linear-gradient(90deg, #ff4fd8, #3aa6ff 70%, #9b5cff);
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
+    .sub{color:var(--muted); font-size:14px}
+    .gamebar{
+      display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-top:10px
+    }
+    .stat{background:var(--panel-2);border:1px solid rgba(255,255,255,.10);border-radius:12px;padding:8px 10px;font-weight:800;color:#dfe6ff}
+    .stat b{color:#ffbee9}
+    .grid{
+      display:grid; gap:10px; margin:8px 0 18px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (min-width:520px){ .grid{grid-template-columns: repeat(3, 1fr);} }
+    @media (min-width:820px){ .grid{grid-template-columns: repeat(4, 1fr);} }
+    @media (min-width:1100px){ .grid{grid-template-columns: repeat(6, 1fr);} }
+
+    .tile{
+      position:relative; aspect-ratio:1/1; border-radius:14px; overflow:hidden;
+      border:1px solid rgba(255,255,255,.10); background:#090e18;
+      transform:translateZ(0);
+      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease, filter .2s ease;
+      box-shadow: 0 0 0 rgba(0,0,0,0);
+      will-change: transform, box-shadow;
+    }
+    .tile img{
+      width:100%; height:100%; object-fit:cover; display:block; filter:saturate(1.06) contrast(1.04);
+      transform:scale(1.001);
+    }
+    .tile:hover{ transform: translateY(-3px) scale(1.012); box-shadow: 0 12px 32px rgba(0,0,0,.35)}
+    .tile::after{
+      content:""; position:absolute; inset:0;
+      background:
+        radial-gradient(120% 90% at 80% 10%, rgba(58,166,255,.0), rgba(58,166,255,.08) 35%, transparent 65%),
+        radial-gradient(120% 90% at 10% 90%, rgba(255,79,216,.0), rgba(255,79,216,.06) 35%, transparent 65%);
+      mix-blend-mode:screen; pointer-events:none;
+    }
+    .bonus{
+      position:absolute; inset:0; display:grid; place-items:center;
+      background: radial-gradient(60% 60% at 50% 50%, rgba(255,79,216,.18), rgba(58,166,255,.18) 40%, transparent 60%);
+      opacity:0; transition:opacity .15s ease;
+      border:2px dashed rgba(255,79,216,.85); border-radius:14px;
+      animation: pulse 1s infinite ease-in-out;
+    }
+    .tile.is-bonus .bonus{opacity:1}
+    .bonus .ring{
+      width:56%; aspect-ratio:1/1; border-radius:50%;
+      border:6px solid rgba(255,255,255,.95); border-top-color:#ff4fd8; border-right-color:#3aa6ff;
+      animation:spin .8s linear infinite; box-shadow: inset 0 0 22px rgba(255,79,216,.28), 0 0 22px rgba(58,166,255,.28);
+    }
+    .hit{
+      position:absolute; inset:0; display:grid; place-items:center;
+      pointer-events:none; opacity:0; transition:opacity .18s ease, transform .18s ease; transform:scale(.8);
+    }
+    .tile.hitflash .hit{opacity:1; transform:scale(1)}
+    .hit span{
+      background:linear-gradient(90deg,#ff4fd8,#3aa6ff);
+      color:#0c0612; font-weight:900; padding:6px 10px; border-radius:999px; box-shadow:var(--glow-accent)
+    }
+    .missflash{ animation: miss .45s ease }
+    @keyframes spin{to{transform:rotate(360deg)}}
+    @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+    @keyframes miss{0%{filter:none}50%{filter:hue-rotate(-12deg) saturate(1.25)}100%{filter:none}}
+    footer{opacity:.85;margin:18px 0 40px;text-align:center;font-size:12px;color:#c5d1ff}
+    .inline{display:inline-flex;gap:6px;align-items:center}
+    .kbd{
+      border:1px solid rgba(255,255,255,.15); padding:1px 6px;border-radius:6px;background:rgba(255,255,255,.06);font-weight:700;
+    }
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+    .tweet{background:linear-gradient(180deg,#2ec9ff,#1191ff); color:#001329}
+    .pc-footer{
+      display:flex;justify-content:center;gap:8px;align-items:center;margin-top:8px;opacity:.9
+    }
+    .pc-footer img{width:18px;height:18px}
+  </style>
+</head>
+<body>
+
+  <!-- Header / CTAs -->
+  <header>
+    <div class="wrap row">
+      <div class="brand">
+        <img class="logo" src="1.jpeg" alt="Walter" />
+        <div class="title">
+          WALTER THE DOG <span style="opacity:.6;font-weight:700">(Nelson)</span>
+        </div>
+      </div>
+
+      <!-- Keep original CTAs -->
+      <nav class="cta">
+        <a class="btn buy" href="YOUR_PUMP_TIRES_LINK" target="_blank" rel="noopener">Buy</a>
+        <a class="btn" href="https://t.me/YOUR_TELEGRAM" target="_blank" rel="noopener">Telegram</a>
+        <a class="btn primary" href="https://twitter.com/YOUR_TWITTER" target="_blank" rel="noopener">Twitter</a>
+      </nav>
+    </div>
+
+    <!-- Original dog socials -->
+    <div class="wrap" style="padding-top:10px;padding-bottom:12px">
+      <div class="socials">
+        <a class="btn tt" href="https://twitter.com/puppernelson" target="_blank" rel="noopener">Original Twitter</a>
+        <a class="btn ig" href="https://instagram.com/puppernelson" target="_blank" rel="noopener">Original Instagram</a>
+        <a class="btn tok" href="https://www.tiktok.com/@puppernelson" target="_blank" rel="noopener">Original TikTok</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- Hero copy -->
+    <section class="hero">
+      <div class="panel">
+        <h1 class="headline">Pulsechain’s most serious meme: a very serious dog.</h1>
+        <div class="sub">
+          Walter is rolling onto <b>Pump.Tires</b>. Smash tires, farm points, flex your score,
+          and join the pack. Every card on this wall is Walter; some hide a turbo tire. Tap it fast.
+        </div>
+
+        <div class="gamebar">
+          <div class="stat">Score: <b id="score">0</b></div>
+          <div class="stat">Combo: <b id="combo">x0</b></div>
+          <div class="stat">Time: <b id="time">60</b>s</div>
+          <div class="stat">High Score: <b id="high">0</b></div>
+          <div class="actions">
+            <button id="startBtn" class="btn">▶ Start</button>
+            <button id="tweetBtn" class="btn tweet">Tweet score</button>
+          </div>
+        </div>
+
+        <div class="pc-footer">
+        </div>
+      </div>
+
+      <!-- Walter Wall -->
+      <div id="grid" class="grid" aria-label="Walter Wall, interactive image grid"></div>
+
+      <footer>
+        <div>Tip: play with taps. Bonus target rotates every second. Don’t miss. Hyper-combo if you chain hits.</div>
+        <div class="inline" style="margin-top:6px">Desktop: <span class="kbd">Click</span> target • Mobile: <span class="kbd">Tap</span></div>
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    // ---------- Config ----------
+    const IMAGE_COUNT = 30;                 // expects 1.jpeg .. 28.jpeg in same folder
+    const GAME_DURATION = 60;               // seconds
+    const BONUS_INTERVAL = 1000;            // ms between new bonus tiles
+    const HIT_POINTS = 50;                  // base score per hit
+    const COMBO_BONUS = 10;                 // extra per combo step
+    const MISS_PENALTY = 1;                 // combo decay on miss
+    const GRID = document.getElementById('grid');
+
+    // ---------- State ----------
+    let tiles = [];
+    let bonusIndex = -1;
+    let score = 0;
+    let combo = 0;
+    let timeLeft = GAME_DURATION;
+    let loop = null;
+    let tick = null;
+    let running = false;
+
+    const elScore = document.getElementById('score');
+    const elCombo = document.getElementById('combo');
+    const elTime  = document.getElementById('time');
+    const elHigh  = document.getElementById('high');
+
+    // ---------- Utils ----------
+    const preloadImages = async (n) => {
+      const jobs = [];
+      for(let i=1;i<=n;i++){
+        jobs.push(new Promise((res)=>{
+          const img = new Image();
+          img.src = `${i}.jpeg`;
+          img.onload = res; img.onerror = res; // ignore fail, continue
+        }));
+      }
+      await Promise.all(jobs);
+    };
+
+    const shuffle = (arr)=>{
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    };
+
+    const setHighScore = (val)=>{
+      try{
+        const prev = Number(localStorage.getItem('walter_highscore')||0);
+        if(val>prev){ localStorage.setItem('walter_highscore', String(val)); }
+        elHigh.textContent = Math.max(val, prev);
+      }catch(e){}
+    };
+
+    const getHighScore = ()=>{
+      try{ return Number(localStorage.getItem('walter_highscore')||0); }catch(e){ return 0; }
+    };
+
+    // ---------- Build Grid ----------
+    const buildGrid = ()=>{
+      const order = shuffle(Array.from({length: IMAGE_COUNT}, (_,i)=>i+1));
+      GRID.innerHTML = '';
+      tiles = order.map((idx)=>{
+        const tile = document.createElement('button');
+        tile.className = 'tile';
+        tile.setAttribute('aria-label','Walter card');
+        tile.innerHTML = `
+          <img src="${idx}.jpeg" alt="Walter ${idx}" loading="lazy" decoding="async" />
+          <div class="bonus"><div class="ring" aria-hidden="true"></div></div>
+          <div class="hit"><span>+${HIT_POINTS}</span></div>
+        `;
+        tile.addEventListener('click', ()=> onTileClick(tile));
+        GRID.appendChild(tile);
+        return tile;
+      });
+    };
+
+    // ---------- Game Logic ----------
+    const clearBonus = ()=>{
+      if(bonusIndex>=0 && tiles[bonusIndex]){
+        tiles[bonusIndex].classList.remove('is-bonus');
+      }
+      bonusIndex = -1;
+    };
+
+    const pickBonus = ()=>{
+      clearBonus();
+      bonusIndex = Math.floor(Math.random()*tiles.length);
+      tiles[bonusIndex].classList.add('is-bonus');
+    };
+
+    const onTileClick = (tile)=>{
+      if(!running) return;
+      if(tile.classList.contains('is-bonus')){
+        combo++;
+        const gain = HIT_POINTS + (combo-1)*COMBO_BONUS;
+        score += gain;
+        elScore.textContent = score;
+        elCombo.textContent = 'x'+combo;
+
+        tile.classList.add('hitflash');
+        tile.querySelector('.hit span').textContent = `+${gain}`;
+        setTimeout(()=> tile.classList.remove('hitflash'), 200);
+
+        pickBonus();
+      }else{
+        if(combo>0){ combo = Math.max(0, combo - MISS_PENALTY); }
+        elCombo.textContent = 'x'+combo;
+        tile.classList.add('missflash');
+        setTimeout(()=> tile.classList.remove('missflash'), 350);
+      }
+    };
+
+    const startGame = ()=>{
+      if(running) return;
+      running = true;
+      score = 0; combo = 0; timeLeft = GAME_DURATION;
+      elScore.textContent = '0'; elCombo.textContent = 'x0'; elTime.textContent = timeLeft;
+
+      buildGrid();
+      pickBonus();
+
+      loop = setInterval(pickBonus, BONUS_INTERVAL);
+      tick = setInterval(()=>{
+        timeLeft--;
+        elTime.textContent = timeLeft;
+        if(timeLeft<=0){ endGame(); }
+      }, 1000);
+
+      document.getElementById('startBtn').textContent = '⏸ Pause';
+    };
+
+    const pauseGame = ()=>{
+      if(!running) return;
+      running = false;
+      clearInterval(loop); clearInterval(tick);
+      document.getElementById('startBtn').textContent = '▶ Resume';
+    };
+
+    const endGame = ()=>{
+      running = false;
+      clearInterval(loop); clearInterval(tick);
+      clearBonus();
+      setHighScore(score);
+      alert(`GG! Your score: ${score}\nHigh score: ${getHighScore()}\nShare it on Twitter!`);
+      document.getElementById('startBtn').textContent = '▶ Start';
+    };
+
+    // ---------- Controls ----------
+    document.getElementById('startBtn').addEventListener('click', ()=>{
+      if(!running && timeLeft===GAME_DURATION && score===0){ startGame(); }
+      else if(running){ pauseGame(); }
+      else { running = true; document.getElementById('startBtn').textContent = '⏸ Pause';
+        loop = setInterval(pickBonus, BONUS_INTERVAL);
+        tick = setInterval(()=>{ timeLeft--; elTime.textContent = timeLeft; if(timeLeft<=0){ endGame(); } },1000);
+      }
+    });
+
+    document.getElementById('tweetBtn').addEventListener('click', ()=>{
+      const text = encodeURIComponent(`I just smashed ${score} points in TIRE HUNT with Walter the Dog on Pulsechain. Can you beat my high score of ${getHighScore()}? #Pulsechain #PumpTires #Walter`);
+      const url  = encodeURIComponent('YOUR_PUMP_TIRES_LINK');
+      const intent = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
+      window.open(intent, '_blank', 'noopener');
+    });
+
+    // ---------- Init ----------
+    (async function init(){
+      elHigh.textContent = getHighScore();
+      await preloadImages(IMAGE_COUNT);
+      buildGrid();
+    })();
+  </script>
+</body>
+</html>
+
