@@ -3,24 +3,24 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Walter the Dog (Nelson) — Pulsechain Meme</title>
-  <meta name="description" content="Walter the Dog on Pulsechain via Pump.Tires. Tap the Tire Hunt, farm points, and join the pack." />
+  <title>Walter the Dog (Nelson) — Bitcoin Meme</title>
+  <meta name="description" content="Walter the Dog on Bitcoin via ODIN.FUN. Create tokens in seconds and trade on a pump-fun style bonding curve with a built-in AMM. Everything updates in real time." />
   <link rel="icon" href="1.jpeg" />
 
   <style>
     :root{
-      /* Pulsechain-inspired palette */
-      --bg:#0a0b14;
-      --panel:#101428;
-      --panel-2:#0c1122;
-      --text:#f0f3ff;
-      --muted:#b8c6ff;
-      --accent:#ff4fd8;          /* magenta */
-      --accent-2:#3aa6ff;        /* cyan/blue */
-      --accent-3:#9b5cff;        /* purple */
+      /* Bitcoin palette (mínimo necessário) */
+      --bg:#0b0b0b;
+      --panel:#141414;
+      --panel-2:#101010;
+      --text:#f5f5f5;
+      --muted:#d6d6d6;
+      --accent:#f7931a;
+      --accent-2:#ffcf8a;
+      --accent-3:#ffd89a;
       --danger:#ff5e7e;
-      --glow: 0 0 28px rgba(58,166,255,.35), 0 0 36px rgba(155,92,255,.20);
-      --glow-accent: 0 0 28px rgba(255,79,216,.35);
+      --glow: 0 0 28px rgba(247,147,26,.25), 0 0 36px rgba(255,207,138,.15);
+      --glow-accent: 0 0 28px rgba(247,147,26,.35);
       --radius:18px;
     }
     *{box-sizing:border-box}
@@ -30,9 +30,9 @@
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
       color:var(--text);
       background:
-        radial-gradient(1400px 700px at 85% -10%, rgba(58,166,255,.14), transparent 55%),
-        radial-gradient(1100px 500px at 15% 0%, rgba(155,92,255,.14), transparent 60%),
-        linear-gradient(180deg, #080a12 0%, #0a0b14 100%);
+        radial-gradient(1400px 700px at 85% -10%, rgba(247,147,26,.14), transparent 55%),
+        radial-gradient(1100px 500px at 15% 0%, rgba(255,207,138,.14), transparent 60%),
+        linear-gradient(180deg, #0a0a0a 0%, #0b0b0b 100%);
       background-color:var(--bg);
       overflow-x:hidden;
     }
@@ -44,19 +44,9 @@
       background: linear-gradient(180deg, rgba(10,11,20,.85), rgba(10,11,20,.55));
       border-bottom:1px solid rgba(255,255,255,.06);
     }
-    .brand{
-      display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.5px;
-    }
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.5px}
     .brand img.logo{width:36px;height:36px;border-radius:8px;object-fit:cover}
     .brand .title{font-size:18px;display:flex;align-items:center;gap:10px}
-    .pc-badge{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:6px 10px;border-radius:999px;
-      background:linear-gradient(90deg, rgba(255,79,216,.18), rgba(58,166,255,.18));
-      border:1px solid rgba(255,255,255,.12);
-      font-weight:800;color:#e9e6ff;
-    }
-    .pc-badge img{width:18px;height:18px;display:block}
     .row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
     .cta{display:flex;gap:10px;flex-wrap:wrap}
     .btn{
@@ -66,105 +56,68 @@
       transition:transform .12s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
       cursor:pointer; user-select:none;
     }
-    .btn:hover{transform:translateY(-1px);box-shadow:0 0 0 rgba(0,0,0,0), 0 0 40px rgba(58,166,255,.28)}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 0 0 rgba(0,0,0,0), 0 0 40px rgba(247,147,26,.28)}
     .btn.primary{
-      background:linear-gradient(180deg, #3aa6ff 0%, #0f87ff 100%);
-      color:#001020; border-color:transparent
+      background:linear-gradient(180deg, #ffcf8a 0%, #f7931a 100%);
+      color:#1a0d00; border-color:transparent
     }
     .btn.buy{
-      background:linear-gradient(180deg, #ff4fd8, #9b5cff);
-      color:#14001a; box-shadow:var(--glow-accent)
+      background:linear-gradient(180deg, #ffcf8a, #f7931a);
+      color:#1a0d00; box-shadow:var(--glow-accent)
     }
     .btn.ig{background:linear-gradient(180deg, #ff7a00, #ff0069); color:#1a0010}
     .btn.tt{background:linear-gradient(180deg, #111, #111); color:#f5f5f5; border-color:#2a2a2a}
     .btn.tok{background:linear-gradient(180deg, #25f4ee, #fe2c55); color:#051014}
     .socials{display:flex;gap:10px;flex-wrap:wrap}
-    .hero{
-      display:grid;grid-template-columns:1fr;gap:16px;margin:16px auto 8px;
-    }
+    .hero{display:grid;grid-template-columns:1fr;gap:16px;margin:16px auto 8px}
     .panel{
       background: linear-gradient(180deg,rgba(18,20,38,.85),rgba(12,16,34,.85));
       border:1px solid rgba(255,255,255,.08); border-radius:var(--radius);
-      padding:18px; box-shadow: 0 0 0 rgba(0,0,0,0), inset 0 0 64px rgba(58,166,255,.06);
+      padding:18px; box-shadow: inset 0 0 64px rgba(247,147,26,.08);
     }
     .headline{
-      font-size:clamp(24px, 3.5vw, 44px); line-height:1.05; font-weight:900;
-      letter-spacing:.2px; margin:0 0 6px;
+      font-size:clamp(24px, 3.5vw, 44px); line-height:1.05; font-weight:900; letter-spacing:.2px; margin:0 0 6px;
       text-shadow:0 2px 0 rgba(0,0,0,.4);
-      background: linear-gradient(90deg, #ff4fd8, #3aa6ff 70%, #9b5cff);
+      background: linear-gradient(90deg, var(--accent), var(--accent-2) 70%, var(--accent-3));
       -webkit-background-clip:text; background-clip:text; color:transparent;
     }
     .sub{color:var(--muted); font-size:14px}
-    .gamebar{
-      display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-top:10px
-    }
-    .stat{background:var(--panel-2);border:1px solid rgba(255,255,255,.10);border-radius:12px;padding:8px 10px;font-weight:800;color:#dfe6ff}
-    .stat b{color:#ffbee9}
-    .grid{
-      display:grid; gap:10px; margin:8px 0 18px;
-      grid-template-columns: repeat(2, 1fr);
-    }
-    @media (min-width:520px){ .grid{grid-template-columns: repeat(3, 1fr);} }
-    @media (min-width:820px){ .grid{grid-template-columns: repeat(4, 1fr);} }
-    @media (min-width:1100px){ .grid{grid-template-columns: repeat(6, 1fr);} }
+    .gamebar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-top:10px}
+    .stat{background:var(--panel-2);border:1px solid rgba(255,255,255,.10);border-radius:12px;padding:8px 10px;font-weight:800;color:#ffe6c7}
+    .stat b{color:#ffcf8a}
+    .grid{display:grid; gap:10px; margin:8px 0 18px; grid-template-columns: repeat(2, 1fr)}
+    @media (min-width:520px){ .grid{grid-template-columns: repeat(3, 1fr)} }
+    @media (min-width:820px){ .grid{grid-template-columns: repeat(4, 1fr)} }
+    @media (min-width:1100px){ .grid{grid-template-columns: repeat(6, 1fr)} }
 
-    .tile{
-      position:relative; aspect-ratio:1/1; border-radius:14px; overflow:hidden;
-      border:1px solid rgba(255,255,255,.10); background:#090e18;
-      transform:translateZ(0);
-      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease, filter .2s ease;
-      box-shadow: 0 0 0 rgba(0,0,0,0);
-      will-change: transform, box-shadow;
-    }
-    .tile img{
-      width:100%; height:100%; object-fit:cover; display:block; filter:saturate(1.06) contrast(1.04);
-      transform:scale(1.001);
-    }
+    .tile{position:relative; aspect-ratio:1/1; border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,.10); background:#090e18; transform:translateZ(0);
+      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease, filter .2s ease; box-shadow: 0 0 0 rgba(0,0,0,0); will-change: transform, box-shadow}
+    .tile img{width:100%; height:100%; object-fit:cover; display:block; filter:saturate(1.06) contrast(1.04); transform:scale(1.001)}
     .tile:hover{ transform: translateY(-3px) scale(1.012); box-shadow: 0 12px 32px rgba(0,0,0,.35)}
     .tile::after{
       content:""; position:absolute; inset:0;
       background:
-        radial-gradient(120% 90% at 80% 10%, rgba(58,166,255,.0), rgba(58,166,255,.08) 35%, transparent 65%),
-        radial-gradient(120% 90% at 10% 90%, rgba(255,79,216,.0), rgba(255,79,216,.06) 35%, transparent 65%);
+        radial-gradient(120% 90% at 80% 10%, rgba(247,147,26,.06), transparent 65%),
+        radial-gradient(120% 90% at 10% 90%, rgba(255,207,138,.06), transparent 65%);
       mix-blend-mode:screen; pointer-events:none;
     }
-    .bonus{
-      position:absolute; inset:0; display:grid; place-items:center;
-      background: radial-gradient(60% 60% at 50% 50%, rgba(255,79,216,.18), rgba(58,166,255,.18) 40%, transparent 60%);
-      opacity:0; transition:opacity .15s ease;
-      border:2px dashed rgba(255,79,216,.85); border-radius:14px;
-      animation: pulse 1s infinite ease-in-out;
-    }
+    .bonus{position:absolute; inset:0; display:grid; place-items:center; background: radial-gradient(60% 60% at 50% 50%, rgba(247,147,26,.18), rgba(255,207,138,.18) 40%, transparent 60%);
+      opacity:0; transition:opacity .15s ease; border:2px dashed rgba(247,147,26,.85); border-radius:14px; animation: pulse 1s infinite ease-in-out}
     .tile.is-bonus .bonus{opacity:1}
-    .bonus .ring{
-      width:56%; aspect-ratio:1/1; border-radius:50%;
-      border:6px solid rgba(255,255,255,.95); border-top-color:#ff4fd8; border-right-color:#3aa6ff;
-      animation:spin .8s linear infinite; box-shadow: inset 0 0 22px rgba(255,79,216,.28), 0 0 22px rgba(58,166,255,.28);
-    }
-    .hit{
-      position:absolute; inset:0; display:grid; place-items:center;
-      pointer-events:none; opacity:0; transition:opacity .18s ease, transform .18s ease; transform:scale(.8);
-    }
+    .bonus .ring{width:56%; aspect-ratio:1/1; border-radius:50%; border:6px solid rgba(255,255,255,.95); border-top-color:#ffcf8a; border-right-color:#f7931a; animation:spin .8s linear infinite; box-shadow: inset 0 0 22px rgba(247,147,26,.28), 0 0 22px rgba(255,207,138,.28)}
+    .hit{position:absolute; inset:0; display:grid; place-items:center; pointer-events:none; opacity:0; transition:opacity .18s ease, transform .18s ease; transform:scale(.8)}
     .tile.hitflash .hit{opacity:1; transform:scale(1)}
-    .hit span{
-      background:linear-gradient(90deg,#ff4fd8,#3aa6ff);
-      color:#0c0612; font-weight:900; padding:6px 10px; border-radius:999px; box-shadow:var(--glow-accent)
-    }
+    .hit span{background:linear-gradient(90deg,#ffcf8a,#f7931a); color:#1a0d00; font-weight:900; padding:6px 10px; border-radius:999px; box-shadow:var(--glow-accent)}
     .missflash{ animation: miss .45s ease }
     @keyframes spin{to{transform:rotate(360deg)}}
     @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
-    @keyframes miss{0%{filter:none}50%{filter:hue-rotate(-12deg) saturate(1.25)}100%{filter:none}}
-    footer{opacity:.85;margin:18px 0 40px;text-align:center;font-size:12px;color:#c5d1ff}
+    @keyframes miss{0%{filter:none}50%{filter:hue-rotate(-8deg) saturate(1.15)}100%{filter:none}}
+    footer{opacity:.85;margin:18px 0 40px;text-align:center;font-size:12px;color:#e8e8e8}
     .inline{display:inline-flex;gap:6px;align-items:center}
-    .kbd{
-      border:1px solid rgba(255,255,255,.15); padding:1px 6px;border-radius:6px;background:rgba(255,255,255,.06);font-weight:700;
-    }
+    .kbd{border:1px solid rgba(255,255,255,.15); padding:1px 6px;border-radius:6px;background:rgba(255,255,255,.06);font-weight:700}
     .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
-    .tweet{background:linear-gradient(180deg,#2ec9ff,#1191ff); color:#001329}
-    .pc-footer{
-      display:flex;justify-content:center;gap:8px;align-items:center;margin-top:8px;opacity:.9
-    }
-    .pc-footer img{width:18px;height:18px}
+    .tweet{background:linear-gradient(180deg,#ffcf8a,#f7931a); color:#1a0d00}
+    .pc-footer{display:flex;justify-content:center;gap:8px;align-items:center;margin-top:8px;opacity:.9}
   </style>
 </head>
 <body>
@@ -179,9 +132,9 @@
         </div>
       </div>
 
-      <!-- Keep original CTAs -->
+      <!-- CTAs -->
       <nav class="cta">
-        <a class="btn buy" href="https://pump.tires/token/0x50397800c8253eb681f850323882256e688c6fc0" target="_blank" rel="noopener">Buy</a>
+        <a class="btn buy" href="" target="_blank" rel="noopener">Buy</a>
         <a class="btn" href="https://t.me/WalterDogNelson" target="_blank" rel="noopener">Telegram</a>
         <a class="btn primary" href="https://x.com/WalterDogNelson" target="_blank" rel="noopener">Twitter</a>
       </nav>
@@ -201,10 +154,9 @@
     <!-- Hero copy -->
     <section class="hero">
       <div class="panel">
-        <h1 class="headline">Pulsechain’s most serious meme: a very serious dog.</h1>
+        <h1 class="headline">Bitcoin’s most serious meme: a very serious dog.</h1>
         <div class="sub">
-          Walter is rolling onto <b>Pump.Tires</b>. Smash tires, farm points, flex your score,
-          and join the pack. Every card on this wall is Walter; some hide a turbo tire. Tap it fast.
+          What is ODIN.FUN? Odin.Fun is the fastest way to trade tokens on Bitcoin. Create tokens in seconds. Buy and sell tokens on a pump fun style bonding curve at lightning speed. Deposit and withdraw liquidity in our built-in AMM. Trade along the AMM curve just as quick as the bonding curve. Everything updates in real-time.
         </div>
 
         <div class="gamebar">
@@ -218,8 +170,7 @@
           </div>
         </div>
 
-        <div class="pc-footer">
-        </div>
+        <div class="pc-footer"></div>
       </div>
 
       <!-- Walter Wall -->
@@ -234,12 +185,12 @@
 
   <script>
     // ---------- Config ----------
-    const IMAGE_COUNT = 30;                 // expects 1.jpeg .. 28.jpeg in same folder
-    const GAME_DURATION = 60;               // seconds
-    const BONUS_INTERVAL = 1000;            // ms between new bonus tiles
-    const HIT_POINTS = 50;                  // base score per hit
-    const COMBO_BONUS = 10;                 // extra per combo step
-    const MISS_PENALTY = 1;                 // combo decay on miss
+    const IMAGE_COUNT = 30;
+    const GAME_DURATION = 60;
+    const BONUS_INTERVAL = 1000;
+    const HIT_POINTS = 50;
+    const COMBO_BONUS = 10;
+    const MISS_PENALTY = 1;
     const GRID = document.getElementById('grid');
 
     // ---------- State ----------
@@ -264,7 +215,7 @@
         jobs.push(new Promise((res)=>{
           const img = new Image();
           img.src = `${i}.jpeg`;
-          img.onload = res; img.onerror = res; // ignore fail, continue
+          img.onload = res; img.onerror = res;
         }));
       }
       await Promise.all(jobs);
@@ -391,8 +342,8 @@
     });
 
     document.getElementById('tweetBtn').addEventListener('click', ()=>{
-      const text = encodeURIComponent(`I just smashed ${score} points in TIRE HUNT with Walter the Dog on Pulsechain. Can you beat my high score of ${getHighScore()}? #Pulsechain #PumpTires #Walter`);
-      const url  = encodeURIComponent('YOUR_PUMP_TIRES_LINK');
+      const text = encodeURIComponent(`I just smashed ${score} points in TIRE HUNT with Walter the Dog on Bitcoin via ODIN.FUN. Can you beat my high score of ${getHighScore()}? #Bitcoin #ODINFUN #Walter`);
+      const url  = encodeURIComponent('https://odin.fun');
       const intent = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
       window.open(intent, '_blank', 'noopener');
     });
