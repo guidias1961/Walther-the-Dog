@@ -3,24 +3,24 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Walter the Dog (Nelson) — Base Meme</title>
-  <meta name="description" content="Walter the Dog on Basechain. Fast, clean, and very serious about memes. Play the Walter Wall and share your score." />
+  <title>Walter the Dog (Nelson) — Bitcoin Meme</title>
+  <meta name="description" content="Walter the Dog on Bitcoin. Fast, clean, and very serious about memes. Play the Walter Wall and share your score." />
   <link rel="icon" href="1.jpeg" />
 
   <style>
     :root{
-      /* Base palette */
-      --bg:#0b0f14;
-      --panel:#0f1320;
-      --panel-2:#0c111c;
-      --text:#eaf2ff;
-      --muted:#bcd0ff;
-      --accent:#0052ff;
-      --accent-2:#4da3ff;
-      --accent-3:#91c3ff;
+      /* Bitcoin palette */
+      --bg:#0b0b0b;
+      --panel:#141414;
+      --panel-2:#101010;
+      --text:#f5f5f5;
+      --muted:#d6d6d6;
+      --accent:#f7931a;   /* BTC orange */
+      --accent-2:#e67e00; /* deeper orange */
+      --accent-3:#ffb347; /* light orange */
       --danger:#ff5e7e;
-      --glow: 0 0 28px rgba(0,82,255,.25), 0 0 36px rgba(77,163,255,.18);
-      --glow-accent: 0 0 28px rgba(0,82,255,.38);
+      --glow: 0 0 28px rgba(247,147,26,.22), 0 0 36px rgba(230,126,0,.14);
+      --glow-accent: 0 0 28px rgba(247,147,26,.35);
       --radius:18px;
     }
     *{box-sizing:border-box}
@@ -30,9 +30,9 @@
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
       color:var(--text);
       background:
-        radial-gradient(1400px 700px at 85% -10%, rgba(0,82,255,.14), transparent 55%),
-        radial-gradient(1100px 500px at 15% 0%, rgba(77,163,255,.14), transparent 60%),
-        linear-gradient(180deg, #0a0d14 0%, #0b0f14 100%);
+        radial-gradient(1400px 700px at 85% -10%, rgba(247,147,26,.12), transparent 55%),
+        radial-gradient(1100px 500px at 15% 0%, rgba(230,126,0,.12), transparent 60%),
+        linear-gradient(180deg, #0b0b0b 0%, #0e0e0e 100%);
       background-color:var(--bg);
       overflow-x:hidden;
     }
@@ -41,7 +41,7 @@
     header{
       position:sticky; top:0; z-index:50;
       backdrop-filter: blur(8px);
-      background: linear-gradient(180deg, rgba(10,13,20,.85), rgba(10,13,20,.55));
+      background: linear-gradient(180deg, rgba(11,11,11,.85), rgba(11,11,11,.55));
       border-bottom:1px solid rgba(255,255,255,.06);
     }
     .brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.5px}
@@ -56,14 +56,14 @@
       transition:transform .12s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
       cursor:pointer; user-select:none;
     }
-    .btn:hover{transform:translateY(-1px);box-shadow:0 0 0 rgba(0,0,0,0), 0 0 40px rgba(0,82,255,.28)}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 0 0 rgba(0,0,0,0), 0 0 40px rgba(247,147,26,.26)}
     .btn.primary{
       background:linear-gradient(180deg, var(--accent-2) 0%, var(--accent) 100%);
-      color:#eaf2ff; border-color:transparent
+      color:#1a0f00; border-color:transparent
     }
     .btn.buy{
       background:linear-gradient(180deg, var(--accent-2), var(--accent));
-      color:#eaf2ff; box-shadow:var(--glow-accent)
+      color:#1a0f00; box-shadow:var(--glow-accent)
     }
     .btn.ig{background:linear-gradient(180deg, #ff7a00, #ff0069); color:#fff}
     .btn.tt{background:linear-gradient(180deg, #111, #111); color:#f5f5f5; border-color:#2a2a2a}
@@ -71,9 +71,9 @@
     .socials{display:flex;gap:10px;flex-wrap:wrap}
     .hero{display:grid;grid-template-columns:1fr;gap:16px;margin:16px auto 8px}
     .panel{
-      background: linear-gradient(180deg,rgba(15,19,32,.88),rgba(12,17,28,.88));
+      background: linear-gradient(180deg,rgba(20,20,20,.88),rgba(16,16,16,.88));
       border:1px solid rgba(255,255,255,.08); border-radius:var(--radius);
-      padding:18px; box-shadow: inset 0 0 64px rgba(0,82,255,.10);
+      padding:18px; box-shadow: inset 0 0 64px rgba(247,147,26,.10);
     }
     .headline{
       font-size:clamp(24px, 3.5vw, 44px); line-height:1.05; font-weight:900; letter-spacing:.2px; margin:0 0 6px;
@@ -83,31 +83,31 @@
     }
     .sub{color:var(--muted); font-size:14px}
     .gamebar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-top:10px}
-    .stat{background:var(--panel-2);border:1px solid rgba(255,255,255,.10);border-radius:12px;padding:8px 10px;font-weight:800;color:#d6e5ff}
-    .stat b{color:#c5dbff}
+    .stat{background:var(--panel-2);border:1px solid rgba(255,255,255,.10);border-radius:12px;padding:8px 10px;font-weight:800;color:#f0e5d6}
+    .stat b{color:#ffe0b3}
     .grid{display:grid; gap:10px; margin:8px 0 18px; grid-template-columns: repeat(2, 1fr)}
     @media (min-width:520px){ .grid{grid-template-columns: repeat(3, 1fr)} }
     @media (min-width:820px){ .grid{grid-template-columns: repeat(4, 1fr)} }
     @media (min-width:1100px){ .grid{grid-template-columns: repeat(6, 1fr)} }
 
-    .tile{position:relative; aspect-ratio:1/1; border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,.10); background:#0a1020; transform:translateZ(0);
+    .tile{position:relative; aspect-ratio:1/1; border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,.10); background:#14120e; transform:translateZ(0);
       transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease, filter .2s ease; box-shadow: 0 0 0 rgba(0,0,0,0); will-change: transform, box-shadow}
     .tile img{width:100%; height:100%; object-fit:cover; display:block; filter:saturate(1.06) contrast(1.04); transform:scale(1.001)}
     .tile:hover{ transform: translateY(-3px) scale(1.012); box-shadow: 0 12px 32px rgba(0,0,0,.35)}
     .tile::after{
       content:""; position:absolute; inset:0;
       background:
-        radial-gradient(120% 90% at 80% 10%, rgba(0,82,255,.10), transparent 65%),
-        radial-gradient(120% 90% at 10% 90%, rgba(77,163,255,.10), transparent 65%);
+        radial-gradient(120% 90% at 80% 10%, rgba(247,147,26,.12), transparent 65%),
+        radial-gradient(120% 90% at 10% 90%, rgba(230,126,0,.12), transparent 65%);
       mix-blend-mode:screen; pointer-events:none;
     }
-    .bonus{position:absolute; inset:0; display:grid; place-items:center; background: radial-gradient(60% 60% at 50% 50%, rgba(0,82,255,.18), rgba(77,163,255,.18) 40%, transparent 60%);
-      opacity:0; transition:opacity .15s ease; border:2px dashed rgba(0,82,255,.85); border-radius:14px; animation: pulse 1s infinite ease-in-out}
+    .bonus{position:absolute; inset:0; display:grid; place-items:center; background: radial-gradient(60% 60% at 50% 50%, rgba(247,147,26,.18), rgba(230,126,0,.18) 40%, transparent 60%);
+      opacity:0; transition:opacity .15s ease; border:2px dashed rgba(247,147,26,.85); border-radius:14px; animation: pulse 1s infinite ease-in-out}
     .tile.is-bonus .bonus{opacity:1}
-    .bonus .ring{width:56%; aspect-ratio:1/1; border-radius:50%; border:6px solid rgba(255,255,255,.95); border-top-color:#91c3ff; border-right-color:#0052ff; animation:spin .8s linear infinite; box-shadow: inset 0 0 22px rgba(0,82,255,.28), 0 0 22px rgba(77,163,255,.28)}
+    .bonus .ring{width:56%; aspect-ratio:1/1; border-radius:50%; border:6px solid rgba(255,255,255,.95); border-top-color:#ffb347; border-right-color:#f7931a; animation:spin .8s linear infinite; box-shadow: inset 0 0 22px rgba(247,147,26,.28), 0 0 22px rgba(230,126,0,.28)}
     .hit{position:absolute; inset:0; display:grid; place-items:center; pointer-events:none; opacity:0; transition:opacity .18s ease, transform .18s ease; transform:scale(.8)}
     .tile.hitflash .hit{opacity:1; transform:scale(1)}
-    .hit span{background:linear-gradient(90deg,#91c3ff,#0052ff); color:#001233; font-weight:900; padding:6px 10px; border-radius:999px; box-shadow:var(--glow-accent)}
+    .hit span{background:linear-gradient(90deg,#ffb347,#f7931a); color:#1a0f00; font-weight:900; padding:6px 10px; border-radius:999px; box-shadow:var(--glow-accent)}
     .missflash{ animation: miss .45s ease }
     @keyframes spin{to{transform:rotate(360deg)}}
     @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
@@ -116,7 +116,7 @@
     .inline{display:inline-flex;gap:6px;align-items:center}
     .kbd{border:1px solid rgba(255,255,255,.15); padding:1px 6px;border-radius:6px;background:rgba(255,255,255,.06);font-weight:700}
     .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
-    .tweet{background:linear-gradient(180deg,#91c3ff,#0052ff); color:#001233}
+    .tweet{background:linear-gradient(180deg, var(--accent-3), var(--accent)); color:#1a0f00}
     .pc-footer{display:flex;justify-content:center;gap:8px;align-items:center;margin-top:8px;opacity:.9}
   </style>
 </head>
@@ -134,7 +134,7 @@
 
       <!-- CTAs -->
       <nav class="cta">
-        <a class="btn buy" href="" target="https://ape.store/base/0x0fe53f0fcdad1f5f489fc042d0272d69e06a2d4a" rel="noopener">Buy</a>
+        <a class="btn buy" href="" target="_blank" rel="noopener">Buy</a>
         <a class="btn" href="https://t.me/WalterDogNelson" target="_blank" rel="noopener">Telegram</a>
         <a class="btn primary" href="https://x.com/WalterDogNelson" target="_blank" rel="noopener">Twitter</a>
       </nav>
@@ -154,9 +154,8 @@
     <!-- Hero copy -->
     <section class="hero">
       <div class="panel">
-        <h1 class="headline">Base’s most serious meme. A very serious dog.</h1>
+        <h1 class="headline">Bitcoin’s most serious meme. A very serious dog.</h1>
         <div class="sub">
-          Nelson is the perfect meme and looks just like Coinbase CEO Brian Armstrong.
         </div>
 
         <div class="gamebar">
@@ -229,16 +228,18 @@
       return arr;
     };
 
+    const STORAGE_KEY = 'nelson_btc_highscore';
+
     const setHighScore = (val)=>{
       try{
-        const prev = Number(localStorage.getItem('nelson_base_highscore')||0);
-        if(val>prev){ localStorage.setItem('nelson_base_highscore', String(val)); }
+        const prev = Number(localStorage.getItem(STORAGE_KEY)||0);
+        if(val>prev){ localStorage.setItem(STORAGE_KEY, String(val)); }
         elHigh.textContent = Math.max(val, prev);
       }catch(e){}
     };
 
     const getHighScore = ()=>{
-      try{ return Number(localStorage.getItem('nelson_base_highscore')||0); }catch(e){ return 0; }
+      try{ return Number(localStorage.getItem(STORAGE_KEY)||0); }catch(e){ return 0; }
     };
 
     // ---------- Build Grid ----------
@@ -342,7 +343,7 @@
     });
 
     document.getElementById('tweetBtn').addEventListener('click', ()=>{
-      const text = encodeURIComponent(`I just smashed ${score} points in TIRE HUNT with Walter the Dog on Base. Can you beat my high score of ${getHighScore()}? #Base #Onchain #Walter`);
+      const text = encodeURIComponent(`I just smashed ${score} points in Walter Wall with Walter the Dog on Bitcoin. Can you beat my high score of ${getHighScore()}? #Bitcoin #Onchain #Walter`);
       const intent = `https://twitter.com/intent/tweet?text=${text}`;
       window.open(intent, '_blank', 'noopener');
     });
