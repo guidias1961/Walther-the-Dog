@@ -3,24 +3,24 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Walter the Dog (Nelson) — Bitcoin Meme</title>
-  <meta name="description" content="Walter the Dog on Bitcoin. Fast, clean, and very serious about memes. Play the Walter Wall and share your score." />
+  <title>Walter the Dog (Nelson) — BSC Meme</title>
+  <meta name="description" content="Walter the Dog on BNB Chain. Fast, clean, and very serious about memes. Play the Walter Wall and share your score." />
   <link rel="icon" href="1.jpeg" />
 
   <style>
     :root{
-      /* Bitcoin palette */
+      /* BNB Chain palette */
       --bg:#0b0b0b;
       --panel:#141414;
       --panel-2:#101010;
       --text:#f5f5f5;
       --muted:#d6d6d6;
-      --accent:#f7931a;   /* BTC orange */
-      --accent-2:#e67e00; /* deeper orange */
-      --accent-3:#ffb347; /* light orange */
+      --accent:#F3BA2F;   /* BNB yellow */
+      --accent-2:#d9a21d; /* deeper yellow */
+      --accent-3:#ffd466; /* light yellow */
       --danger:#ff5e7e;
-      --glow: 0 0 28px rgba(247,147,26,.22), 0 0 36px rgba(230,126,0,.14);
-      --glow-accent: 0 0 28px rgba(247,147,26,.35);
+      --glow: 0 0 28px rgba(243,186,47,.22), 0 0 36px rgba(217,162,29,.14);
+      --glow-accent: 0 0 28px rgba(243,186,47,.35);
       --radius:18px;
     }
     *{box-sizing:border-box}
@@ -30,8 +30,8 @@
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
       color:var(--text);
       background:
-        radial-gradient(1400px 700px at 85% -10%, rgba(247,147,26,.12), transparent 55%),
-        radial-gradient(1100px 500px at 15% 0%, rgba(230,126,0,.12), transparent 60%),
+        radial-gradient(1400px 700px at 85% -10%, rgba(243,186,47,.12), transparent 55%),
+        radial-gradient(1100px 500px at 15% 0%, rgba(217,162,29,.12), transparent 60%),
         linear-gradient(180deg, #0b0b0b 0%, #0e0e0e 100%);
       background-color:var(--bg);
       overflow-x:hidden;
@@ -56,14 +56,14 @@
       transition:transform .12s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
       cursor:pointer; user-select:none;
     }
-    .btn:hover{transform:translateY(-1px);box-shadow:0 0 0 rgba(0,0,0,0), 0 0 40px rgba(247,147,26,.26)}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 0 0 rgba(0,0,0,0), 0 0 40px rgba(243,186,47,.26)}
     .btn.primary{
       background:linear-gradient(180deg, var(--accent-2) 0%, var(--accent) 100%);
-      color:#1a0f00; border-color:transparent
+      color:#1a1500; border-color:transparent
     }
     .btn.buy{
       background:linear-gradient(180deg, var(--accent-2), var(--accent));
-      color:#1a0f00; box-shadow:var(--glow-accent)
+      color:#1a1500; box-shadow:var(--glow-accent)
     }
     .btn.ig{background:linear-gradient(180deg, #ff7a00, #ff0069); color:#fff}
     .btn.tt{background:linear-gradient(180deg, #111, #111); color:#f5f5f5; border-color:#2a2a2a}
@@ -73,7 +73,7 @@
     .panel{
       background: linear-gradient(180deg,rgba(20,20,20,.88),rgba(16,16,16,.88));
       border:1px solid rgba(255,255,255,.08); border-radius:var(--radius);
-      padding:18px; box-shadow: inset 0 0 64px rgba(247,147,26,.10);
+      padding:18px; box-shadow: inset 0 0 64px rgba(243,186,47,.10);
     }
     .headline{
       font-size:clamp(24px, 3.5vw, 44px); line-height:1.05; font-weight:900; letter-spacing:.2px; margin:0 0 6px;
@@ -84,7 +84,7 @@
     .sub{color:var(--muted); font-size:14px}
     .gamebar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-top:10px}
     .stat{background:var(--panel-2);border:1px solid rgba(255,255,255,.10);border-radius:12px;padding:8px 10px;font-weight:800;color:#f0e5d6}
-    .stat b{color:#ffe0b3}
+    .stat b{color:#ffe9b0}
     .grid{display:grid; gap:10px; margin:8px 0 18px; grid-template-columns: repeat(2, 1fr)}
     @media (min-width:520px){ .grid{grid-template-columns: repeat(3, 1fr)} }
     @media (min-width:820px){ .grid{grid-template-columns: repeat(4, 1fr)} }
@@ -97,17 +97,17 @@
     .tile::after{
       content:""; position:absolute; inset:0;
       background:
-        radial-gradient(120% 90% at 80% 10%, rgba(247,147,26,.12), transparent 65%),
-        radial-gradient(120% 90% at 10% 90%, rgba(230,126,0,.12), transparent 65%);
+        radial-gradient(120% 90% at 80% 10%, rgba(243,186,47,.12), transparent 65%),
+        radial-gradient(120% 90% at 10% 90%, rgba(217,162,29,.12), transparent 65%);
       mix-blend-mode:screen; pointer-events:none;
     }
-    .bonus{position:absolute; inset:0; display:grid; place-items:center; background: radial-gradient(60% 60% at 50% 50%, rgba(247,147,26,.18), rgba(230,126,0,.18) 40%, transparent 60%);
-      opacity:0; transition:opacity .15s ease; border:2px dashed rgba(247,147,26,.85); border-radius:14px; animation: pulse 1s infinite ease-in-out}
+    .bonus{position:absolute; inset:0; display:grid; place-items:center; background: radial-gradient(60% 60% at 50% 50%, rgba(243,186,47,.18), rgba(217,162,29,.18) 40%, transparent 60%);
+      opacity:0; transition:opacity .15s ease; border:2px dashed rgba(243,186,47,.85); border-radius:14px; animation: pulse 1s infinite ease-in-out}
     .tile.is-bonus .bonus{opacity:1}
-    .bonus .ring{width:56%; aspect-ratio:1/1; border-radius:50%; border:6px solid rgba(255,255,255,.95); border-top-color:#ffb347; border-right-color:#f7931a; animation:spin .8s linear infinite; box-shadow: inset 0 0 22px rgba(247,147,26,.28), 0 0 22px rgba(230,126,0,.28)}
+    .bonus .ring{width:56%; aspect-ratio:1/1; border-radius:50%; border:6px solid rgba(255,255,255,.95); border-top-color:#ffd466; border-right-color:#F3BA2F; animation:spin .8s linear infinite; box-shadow: inset 0 0 22px rgba(243,186,47,.28), 0 0 22px rgba(217,162,29,.28)}
     .hit{position:absolute; inset:0; display:grid; place-items:center; pointer-events:none; opacity:0; transition:opacity .18s ease, transform .18s ease; transform:scale(.8)}
     .tile.hitflash .hit{opacity:1; transform:scale(1)}
-    .hit span{background:linear-gradient(90deg,#ffb347,#f7931a); color:#1a0f00; font-weight:900; padding:6px 10px; border-radius:999px; box-shadow:var(--glow-accent)}
+    .hit span{background:linear-gradient(90deg,#ffd466,#F3BA2F); color:#1a1500; font-weight:900; padding:6px 10px; border-radius:999px; box-shadow:var(--glow-accent)}
     .missflash{ animation: miss .45s ease }
     @keyframes spin{to{transform:rotate(360deg)}}
     @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
@@ -116,7 +116,7 @@
     .inline{display:inline-flex;gap:6px;align-items:center}
     .kbd{border:1px solid rgba(255,255,255,.15); padding:1px 6px;border-radius:6px;background:rgba(255,255,255,.06);font-weight:700}
     .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
-    .tweet{background:linear-gradient(180deg, var(--accent-3), var(--accent)); color:#1a0f00}
+    .tweet{background:linear-gradient(180deg, var(--accent-3), var(--accent)); color:#1a1500}
     .pc-footer{display:flex;justify-content:center;gap:8px;align-items:center;margin-top:8px;opacity:.9}
   </style>
 </head>
@@ -134,7 +134,7 @@
 
       <!-- CTAs -->
       <nav class="cta">
-        <a class="btn buy" href="https://odin.fun/token/2u9c" target="_blank" rel="noopener">Buy</a>
+        <a class="btn buy" href="" target="_blank" rel="noopener">Buy</a>
         <a class="btn" href="https://t.me/WalterDogNelson" target="_blank" rel="noopener">Telegram</a>
         <a class="btn primary" href="https://x.com/WalterDogNelson" target="_blank" rel="noopener">Twitter</a>
       </nav>
@@ -154,7 +154,7 @@
     <!-- Hero copy -->
     <section class="hero">
       <div class="panel">
-        <h1 class="headline">Bitcoin’s most serious meme. A very serious dog.</h1>
+        <h1 class="headline">BNB Chain’s most serious meme. A very serious dog.</h1>
         <div class="sub">
         </div>
 
@@ -228,7 +228,7 @@
       return arr;
     };
 
-    const STORAGE_KEY = 'nelson_btc_highscore';
+    const STORAGE_KEY = 'nelson_bsc_highscore';
 
     const setHighScore = (val)=>{
       try{
@@ -343,7 +343,7 @@
     });
 
     document.getElementById('tweetBtn').addEventListener('click', ()=>{
-      const text = encodeURIComponent(`I just smashed ${score} points in Walter Wall with Walter the Dog on Bitcoin. Can you beat my high score of ${getHighScore()}? #Bitcoin #Onchain #Walter`);
+      const text = encodeURIComponent(`I just smashed ${score} points in Walter Wall with Walter the Dog on BNB Chain. Can you beat my high score of ${getHighScore()}? #BNBChain #BSC #Walter`);
       const intent = `https://twitter.com/intent/tweet?text=${text}`;
       window.open(intent, '_blank', 'noopener');
     });
